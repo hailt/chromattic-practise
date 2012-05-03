@@ -1,0 +1,24 @@
+<%
+import java.text.SimpleDateFormat;
+
+%>
+
+<div style="height: 600px">
+<%	
+	def photoMap = uicomponent.getPhotoMap();
+	for(key in photoMap.keySet()) {
+		def photo = photoMap.get(key);
+		def createdDate = photo.getCreated();
+		def df = new SimpleDateFormat(uicomponent.getDateTimeFormat());  
+		def strCreatedDate = df.format(createdDate);
+%>
+		<div style="width:100px; height:170px; float:left; margin: 20px">
+			<div style="width:100px; height:130px"><img src="/ecmdemo/rest-ecmdemo/displayImage<%=photo.getPath()%>" style="width:100px; height:130px" /></div>
+			<div style="width:100px; height:20px; text-align: center; overflow: hidden;">$key</div>
+			<div style="width:100px; height:20px; text-align: center; overflow: hidden;">$strCreatedDate</div>
+		</div>		
+<%		
+	}
+	
+%>	
+</div>

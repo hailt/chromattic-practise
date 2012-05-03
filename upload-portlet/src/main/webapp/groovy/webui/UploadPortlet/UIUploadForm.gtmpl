@@ -1,0 +1,34 @@
+<%
+import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormUploadInput;
+%>
+<div class="UIForm $uicomponent.id">
+  <%uiform.begin()%>
+  <div class="HorizontalLayout">
+    <div class="FormContainer">
+      <table>
+      	<tr>
+      		<td class="FieldLabel">Name</td>
+      		<td class="FieldComponent"><% uiform.renderField(uiform.getChild(UIFormStringInput.class)) %></td>
+      		<td class="FieldComponent"></td>
+      	</tr>
+      	<tr>
+      		<td class="FieldLabel">Image</td>
+      		<td class="FieldComponent"><% uiform.renderField(uiform.getChild(UIFormUploadInput.class)) %></td>
+      		<td class="FieldComponent"></td>
+      	</tr>
+      </table>
+
+      <div class="UIAction"> 
+				<% for(action in uicomponent.getActions()) { 
+				 String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
+				String link = uicomponent.event(action) ;
+				%>
+				  <a onclick="$link" class="ActionButton LightBlueStyle" href="javascript:void(0);">$actionLabel</a>
+				<%}%>        
+	  </div>
+
+    </div>
+  </div>
+  <%uiform.end()%>
+</div>

@@ -1,0 +1,30 @@
+<%
+import org.exoplatform.webui.form.UIFormStringInput;
+%>
+<div class="UIForm $uicomponent.id">
+  <%uiform.begin()%>
+  <div class="HorizontalLayout">
+    <div class="FormContainer">
+      <table>
+      	<tr>
+      		<td class="FieldLabel">Path</td>
+      		<td class="FieldComponent"><% uiform.renderField(uiform.getChild(UIFormStringInput.class)) %></td>
+      		<td class="FieldComponent"><div class="UIAction"><a onclick="<%=uicomponent.event('SelectFolderPath') %>" class="ActionButton LightBlueStyle" href="javascript:void(0);">Select Folder Path</a></div></td>
+      	</tr>
+      </table>
+
+      <div class="UIAction"> 
+			<% for(action in uicomponent.getActions()) { 
+				  if (!action.equals("SelectFolderPath")) {
+				 	String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
+					String link = uicomponent.event(action) ;
+			%>
+				  	<a onclick="$link" class="ActionButton LightBlueStyle" href="javascript:void(0);">$actionLabel</a>
+			<%    } 
+				
+			   }%>        
+	  </div>
+    </div>
+  </div>
+  <%uiform.end()%>
+</div>
