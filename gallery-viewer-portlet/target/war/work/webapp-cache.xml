@@ -59,7 +59,7 @@
     <org.apache.maven.plugin.war.util.DependencyInfo>
       <dependency>
         <groupId>org.exoplatform.example</groupId>
-        <artifactId>chromattic-entities</artifactId>
+        <artifactId>practice-commons</artifactId>
         <version>1.0-SNAPSHOT</version>
         <type>jar</type>
         <scope>provided</scope>

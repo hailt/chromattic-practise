@@ -26,7 +26,14 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormUploadInput;
 
-@ComponentConfigs({ @ComponentConfig(lifecycle = UIFormLifecycle.class, template = "app:/groovy/webui/UploadPortlet/UIUploadForm.gtmpl", events = { @EventConfig(listeners = UIUploadForm.SaveActionListener.class) }) })
+@ComponentConfigs({ 
+	@ComponentConfig(
+			lifecycle = UIFormLifecycle.class, 
+			template = "app:/groovy/webui/UploadPortlet/UIUploadForm.gtmpl", 
+			events = { @EventConfig(listeners = UIUploadForm.SaveActionListener.class) }
+			) 
+	}
+)
 public class UIUploadForm extends UIForm {
 	
 	public UIUploadForm() throws Exception {
